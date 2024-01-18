@@ -1,115 +1,115 @@
-origin	nb_fans	rank
-USA	1110	1
-Sweden	461	2
-Germany	385	3
-United Kingdom	335	4
-Finland	295	5
-Italy	217	6
-Norway	216	7
-France	213	8
-Canada	158	9
-The Netherlands	134	10
-Australia	129	11
-Poland	98	12
-Greece	82	13
-Spain	76	14
-Russia	71	15
-Denmark	67	16
-Belgium	57	17
-Brazil	54	18
-Switzerland	52	19
-Japan	51	20
-Romania	48	21
-Portugal	42	22
-Austria	38	23
-Czech Republic	33	24
-Ukraine	25	25
-Latvia	23	26
-Iceland	22	27
-Hungary	19	28
-Ireland	18	29
-Argentina	17	30
-Serbia	17	31
-Israel	16	32
-Iran	15	33
-Mexico	14	34
-Turkey	14	35
-Chile	13	36
-Estonia	13	37
-Bulgaria	12	38
-Slovak Republic	12	39
-New Zealand	11	40
-Croatia	10	41
-Syria	10	42
-Lithuania	9	43
-Slovenia	9	44
-	8	45
-India	8	46
-Cyprus	7	47
-Belarus	6	48
-Faroe Islands	5	49
-Indonesia	5	50
-Jordan	5	51
-Malta	5	52
-Singapore	5	53
-South Africa	5	54
-Bosnia and Herzegovina	4	55
-Costa Rica	4	56
-Lebanon	4	57
-Peru	4	58
-China	3	59
-Colombia	3	60
-Greece, Sweden	3	61
-Luxembourg	3	62
-Taiwan	3	63
-United Kingdom, USA	3	64
-Denmark, USA	2	65
-Egypt	2	66
-Moldova	2	67
-Monaco	2	68
-Sri Lanka	2	69
-UAE	2	70
-USA, Cyprus	2	71
-Albania	1	72
-Andorra	1	73
-Armenia	1	74
-Australia, United Kingdom	1	75
-Azerbaijan	1	76
-Bahrain	1	77
-Belgium, United Kingdom	1	78
-Bolivia	1	79
-Bosnia and Herzegovina, Croatia	1	80
-Canada, France	1	81
-Colombia, USA	1	82
-Ecuador	1	83
-Finland, Sweden	1	84
-Georgia	1	85
-Greece, USA	1	86
-Greenland	1	87
-Hungary, United Kingdom	1	88
-Iran, Norway	1	89
-Iraq	1	90
-Iraq, USA	1	91
-Israel, Germany	1	92
-Israel, The Netherlands	1	93
-Italy, Spain	1	94
-Jersey	1	95
-Korea, South	1	96
-Kyrgyzstan, Germany	1	97
-Liechtenstein	1	98
-Lithuania, Germany	1	99
-Lithuania, United Kingdom	1	100
-Macedonia	1	101
-Malaysia	1	102
-Mexico, USA	1	103
-Norway, Finland	1	104
-Poland, Sweden	1	105
-Portugal, United Kingdom	1	106
-Russia, Canada	1	107
-Saudi Arabia	1	108
-Swaziland	1	109
-Sweden, Finland	1	110
-Tunisia, France	1	111
-Ukraine, Canada	1	112
-United Kingdom, Greece	1	113
-Venezuela	1	114
+origin	nb_fans	rank	@prev_nb_fans := nb_fans
+USA	99349	1	99349
+Sweden	47169	2	47169
+Finland	32878	3	32878
+United Kingdom	32518	4	32518
+Germany	29486	5	29486
+Norway	22405	6	22405
+Canada	8874	7	8874
+The Netherlands	8819	8	8819
+Italy	7178	9	7178
+France	7127	10	7127
+Australia	5825	11	5825
+Poland	5805	12	5805
+Switzerland	3875	13	3875
+Greece	3518	14	3518
+Denmark	3084	15	3084
+Brazil	3070	16	3070
+Austria	2507	17	2507
+Portugal	1873	18	1873
+Russia	1836	19	1836
+Spain	1832	20	1832
+United Kingdom, USA	1684	21	1684
+Japan	1494	22	1494
+Ireland	1381	23	1381
+Denmark, USA	1166	24	1166
+Belgium	1041	25	1041
+Israel	1040	26	1040
+Ukraine	739	27	739
+Romania	722	28	722
+Faroe Islands	618	29	618
+Iceland	609	30	609
+Chile	544	31	544
+Hungary	538	32	538
+Czech Republic	414	33	414
+Iran	372	34	372
+Argentina	331	35	331
+Israel, The Netherlands	307	36	307
+	299	37	299
+Andorra	279	38	279
+Tunisia, France	275	39	275
+New Zealand	269	40	269
+Estonia	235	41	235
+Turkey	217	42	217
+Taiwan	216	43	216
+Latvia	215	44	215
+Slovenia	215	44	215
+Colombia, USA	184	45	184
+Serbia	182	46	182
+Hungary, United Kingdom	177	47	177
+Mexico	173	48	173
+Jordan	150	49	150
+India	145	50	145
+Greece, Sweden	141	51	141
+Syria	138	52	138
+Sweden, Finland	134	53	134
+Slovak Republic	130	54	130
+Lithuania	129	55	129
+Australia, United Kingdom	124	56	124
+Indonesia	103	57	103
+Singapore	100	58	100
+Malta	96	59	96
+Egypt	86	60	86
+Croatia	83	61	83
+UAE	82	62	82
+Liechtenstein	74	63	74
+China	66	64	66
+Bulgaria	65	65	65
+Norway, Finland	64	66	64
+Belgium, United Kingdom	58	67	58
+Russia, Canada	58	67	58
+Lebanon	57	68	57
+Iraq, USA	51	69	51
+Kyrgyzstan, Germany	41	70	41
+South Africa	38	71	38
+Luxembourg	33	72	33
+Belarus	32	73	32
+Bosnia and Herzegovina	31	74	31
+Saudi Arabia	26	75	26
+Costa Rica	26	75	26
+Georgia	20	76	20
+USA, Cyprus	20	76	20
+Peru	20	76	20
+Bahrain	19	77	19
+Iraq	19	77	19
+Moldova	18	78	18
+Korea, South	17	79	17
+Cyprus	16	80	16
+Malaysia	16	80	16
+Greece, USA	13	81	13
+Monaco	12	82	12
+Israel, Germany	12	82	12
+Colombia	11	83	11
+Macedonia	11	83	11
+Portugal, United Kingdom	10	84	10
+Bosnia and Herzegovina, Croatia	9	85	9
+Iran, Norway	6	86	6
+Finland, Sweden	6	86	6
+Sri Lanka	6	86	6
+Ukraine, Canada	5	87	5
+Bolivia	5	87	5
+Armenia	4	88	4
+Azerbaijan	4	88	4
+Ecuador	3	89	3
+Mexico, USA	3	89	3
+Lithuania, United Kingdom	3	89	3
+Canada, France	2	90	2
+Albania	2	90	2
+Jersey	2	90	2
+Lithuania, Germany	2	90	2
+United Kingdom, Greece	2	90	2
+Swaziland	2	90	2
+Italy, Spain	1	91	1
+Venezuela	1	91	1
+Poland, Sweden	1	91	1
+Greenland	0	92	0
