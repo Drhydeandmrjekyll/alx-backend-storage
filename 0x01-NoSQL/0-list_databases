@@ -1,25 +1,5 @@
-#!/usr/bin/env python3
-"""
-// MongoDB Command File
-"""
-
-from pymongo import MongoClient
-
-def list_databases():
-    """
-    List all databases in MongoDB.
-    """
-    try:
-        client = MongoClient()
-
-        databases = client.list_database_names()
-
-        # Print the list of databases
-        for db in databases:
-            print(db)
-
-    except Exception as e:
-        print(f"Error: {e}")
-
-if __name__ == "__main__":
-    list_databases()
+// 0-list_databases
+print("MongoDB shell version v" + version());
+print("connecting to: " + db.getMongo().getDB("admin").runCommand({ whatsmyuri: 1 }));
+print("MongoDB server version: " + db.version());
+show dbs
