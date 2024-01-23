@@ -1,15 +1,5 @@
 // 2-insert
 // my comment
 
-// Connect to the specified database
-db = db.getSiblingDB("my_db")
-
-// Print connection details
-print("connecting to: " + db.getMongo().getDB("admin").runCommand({whatsmyuri: 1}))
-print("MongoDB server version: " + db.version())
-
 // Insert a document into the school collection
 db.school.insert({ name: "Holberton school" })
-
-// Print the result
-printjson(db.runCommand({ getLastError: 1 }))
