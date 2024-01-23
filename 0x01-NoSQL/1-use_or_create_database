@@ -1,7 +1,4 @@
 // my comment
 
-// Switch to the my_db database; if it doesn't exist, it will be created
-use my_db
-
 // Print a message indicating the switch
 print("switched to db my_db")
