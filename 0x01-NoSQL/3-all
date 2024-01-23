@@ -1,10 +1,5 @@
 // 3-all
 // my comment
 
-// Connect to the specified database
-db = db.getSiblingDB("my_db")
-
-// Find and print all documents in the school collection
-cursor = db.school.find().forEach(function(doc) {
-    printjson(doc);
-});
+// Find and print only one document in the school collection
+document = db.school.findOne();
