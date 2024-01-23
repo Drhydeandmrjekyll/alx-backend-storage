@@ -4,5 +4,5 @@
 // Connect to the specified database
 db = db.getSiblingDB("my_db")
 
-// Find and print documents with name="Holberton school" in the school collection
-cursor = db.school.find({ "name": "Holberton school" }).forEach(printjson);
+// Find and print one document with name="Holberton school" in the school collection
+document = db.school.findOne({ "name": "Holberton school" });
