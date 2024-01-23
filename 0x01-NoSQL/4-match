@@ -1,8 +1,5 @@
 // 4-match
 // my comment
 
-// Connect to the specified database
-db = db.getSiblingDB("my_db")
-
 // Find and print one document with name="Holberton school" in the school collection
 document = db.school.findOne({ "name": "Holberton school" });
