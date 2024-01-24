@@ -22,7 +22,8 @@ class Cache:
     @staticmethod
     def count_calls(method: Callable) -> Callable:
         """
-        Decorator to count the number of calls to a method and store in Redis
+        Decorator to count the number of calls
+        to a method and store in Redis
 
         Args:
             method: The method to be decorated
@@ -38,71 +39,89 @@ class Cache:
 
         return wrapper
 
-    @count_calls
-    def store(self, data: Union[str, bytes, int, float]) -> str:
+    @staticmethod
+    def call_history(method: Callable) -> Callable:
         """
-        Store the input data in Redis using a random key and return the key
+        Decorator to store the history of inputs and
+        outputs for a particular function in Redis
 
         Args:
-            data: The data to be stored (str, bytes, int, or float)
+            method: The method to be decorated
 
         Returns:
-            str: The generated random key
+            Callable: The decorated method
         """
-        key = str(uuid.uuid4())
-        self._redis.set(key, data)
-        return key
+        @wraps(method)
+        def wrapper(self, *args, **kwargs):
+            inputs_key = "{}:inputs".format(method.__qualname__)
+            outputs_key = "{}:outputs".format(method.__qualname__)
 
-    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, None]:
+            # Append input arguments to the inputs list
+            self._redis.rpush(inputs_key, str(args))
+
+            # Execute the wrapped function to retrieve the output
+            output = method(self, *args, **kwargs)
+
+            # Store the output in the outputs list
+            self._redis.rpush(outputs_key, str(output))
+
+            return output
+
+        return wrapper
+
+    @staticmethod
+    def replay(func: Callable) -> None:
         """
-        Retrieve data from Redis using the provided key and
-        apply the optional conversion function
+        Display the history of calls for a particular function
 
         Args:
-            key: The key used to retrieve data from Redis
-            fn: Optional conversion function to apply on the retrieved data
+            func: The function to display the history for
 
         Returns:
-            Union[str, bytes, int, None]: The retrieved data
+            None
         """
-        data = self._redis.get(key)
-        if data is None:
-            return None
+        key = func.__qualname__
+        inputs_key = "{}:inputs".format(key)
+        outputs_key = "{}:outputs".format(key)
 
-        return fn(data) if fn else data
+        inputs = cache._redis.lrange(inputs_key, 0, -1)
+        outputs = cache._redis.lrange(outputs_key, 0, -1)
 
-    def get_str(self, key: str) -> Union[str, None]:
+        print("{} was called {} times:".format(key, len(inputs)))
+
+        for inp, out in zip(inputs, outputs):
+            print("{}{} -> {}".format(func.__name__, inp.decode(), out.decode()))
+
+    @staticmethod
+    def replay(func: Callable) -> None:
         """
-        Retrieve and convert data from Redis to string
+        Display the history of calls for a particular function
 
         Args:
-            key: The key used to retrieve data from Redis
+            func: The function to display the history for
 
         Returns:
-            Union[str, None]: The retrieved data as string
+            None
         """
-        return self.get(key, fn=lambda d: d.decode("utf-8"))
+        key = func.__qualname__
+        inputs_key = "{}:inputs".format(key)
+        outputs_key = "{}:outputs".format(key)
 
-    def get_int(self, key: str) -> Union[int, None]:
-        """
-        Retrieve and convert data from Redis to integer
+        inputs = cache._redis.lrange(inputs_key, 0, -1)
+        outputs = cache._redis.lrange(outputs_key, 0, -1)
 
-        Args:
-            key: The key used to retrieve data from Redis
+        print("{} was called {} times:".format(key, len(inputs)))
 
-        Returns:
-            Union[int, None]: The retrieved data as integer
-        """
-        return self.get(key, fn=int)
+        for inp, out in zip(inputs, outputs):
+            print("{}{} -> {}".format(func.__name__, inp.decode(), out.decode()))
 
 
 # Test cases
 if __name__ == "__main__":
     cache = Cache()
 
-    cache.store(b"first")
-    print(cache.get(cache.store.__qualname__))
+    cache.store("foo")
+    cache.store("bar")
+    cache.store(42)
 
-    cache.store(b"second")
-    cache.store(b"third")
-    print(cache.get(cache.store.__qualname__))
+    Cache.replay(cache.store)
